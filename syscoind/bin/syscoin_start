@@ -1,0 +1,70 @@
+#!/bin/bash
+
+set -ex
+
+# Create config file
+if [ ! -e "/opt/syscoin/.syscoin/syscoin.conf" ]; then
+
+	# Create syscoin directory
+	mkdir -p /opt/syscoin/.syscoin
+
+	# Write initial syscoin configuration
+	echo "Creating syscoin.conf"
+	cat <<EOF > /opt/syscoin/.syscoin/syscoin.conf
+disablewallet=${DISABLEWALLET:-0}
+printtoconsole=${PRINTTOCONSOLE:-1}
+rpcuser=${RPCUSER:-syscoinrpc}
+rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+listen=${LISTEN:-1}
+server=${SERVER:-1}
+EOF
+
+fi
+
+# cleanup configuration
+sed -i -E '/^(testnet|\[test\]|assetindex|port|rpcport|gethtestnet|addnode|masternode|externalip)/d' /opt/syscoin/.syscoin/syscoin.conf
+
+# Add testnet configuration if testnet is enabled
+if ! [ -z "$TESTNET" ]; then
+
+	if ! ["$TESTNET" -eq 1 ]; then
+		# write testnet configuration
+		echo "Creating testnet configuration"
+		cat <<EOF >> /opt/syscoin/.syscoin/syscoin.conf
+testnet=1
+[test]
+assetindex=1
+port=18369
+rpcport=18370
+gethtestnet=1
+addnode=54.203.169.179
+addnode=54.190.239.153
+addnode=52.40.171.92
+EOF
+	fi
+
+fi
+
+# Add masternode configuration if masternode is enabled
+if ! [ -z "$MASTERNODEIP" ] && ! [ -z "$MASTERNODEKEY" ]; then
+
+	# write masternode configuration
+	echo "Creating masternode configuration"
+	cat <<EOF >> /opt/syscoin/.syscoin/syscoin.conf
+masternode=1
+masternodeprivkey=${MASTERNODEKEY}
+externalip=${MASTERNODEIP}
+EOF
+
+	# Run sentinel ping script
+	/usr/local/bin/sentinel_ping &
+
+fi
+
+# Print configuration to console
+cat /opt/syscoin/.syscoin/syscoin.conf
+
+echo "Initialization completed successfully"
+
+# start daemon
+exec syscoind -nodebuglogfile
