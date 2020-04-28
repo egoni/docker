@@ -1,6 +1,8 @@
 # Variouse Blockchain Docker Images
 ## Requirements
 * Ubuntu 18.04.4 LTS 
+* Project-specific hardware requirements
+
 ## Install Docker
 Always follow the instructions from [https://docs.docker.com/install/linux/docker-ce/ubuntu/](https://docs.docker.com/install/linux/docker-ce/ubuntu/), the following instructions are only a quick reference:
 ```
