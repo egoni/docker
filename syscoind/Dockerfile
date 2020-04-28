@@ -12,7 +12,7 @@ COPY ./bin/* /usr/local/bin/
 
 # run tasks
 RUN apt-get update && apt-get upgrade -y \
-	&& apt-get install -y python3-virtualenv virtualenv \
+	&& apt-get install -y python3-virtualenv virtualenv net-tools telnet \
 	&& groupadd -g 1000 syscoin \
 	&& useradd -u 1000 -g syscoin -s /bin/bash -m syscoin -d /opt/syscoin \
 	&& tar -xvf /tmp/syscoin-*.tar.gz -C /tmp/ \
