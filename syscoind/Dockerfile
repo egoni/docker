@@ -44,4 +44,4 @@ EXPOSE 30303 8369 18369 18370
 WORKDIR /opt/syscoin
 
 # run daemon
-CMD ["syscoin_start"]
+CMD ["syscoind_start"]
