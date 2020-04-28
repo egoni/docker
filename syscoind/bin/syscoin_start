@@ -14,7 +14,7 @@ if [ ! -e "/opt/syscoin/.syscoin/syscoin.conf" ]; then
 disablewallet=${DISABLEWALLET:-0}
 printtoconsole=${PRINTTOCONSOLE:-1}
 rpcuser=${RPCUSER:-syscoinrpc}
-rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+rpcpassword=${RPCPASSWORD:-`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`}
 listen=${LISTEN:-1}
 server=${SERVER:-1}
 EOF
