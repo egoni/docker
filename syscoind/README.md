@@ -16,7 +16,7 @@ docker run -v syscoind-data:/opt/syscoin --name=syscoind-node -d \
  -p 8369:8369 \
  syscoind:latest
 ```
-### For masternode node
+### For masternode
 ```
 docker run -v syscoind-data:/opt/syscoin --name=syscoind-node -d \
  --env MASTERNODEIP=X.X.X.X \
