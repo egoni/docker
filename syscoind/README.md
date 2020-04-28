@@ -1,4 +1,9 @@
 # Syscoin
+## Requirement
+* Project-specific hardware requirements
+* Docker
+
+Instructions for Ubuntu 18.04.4 LTS Docker installation can be found [here](https://github.com/egoni/docker/blob/master/README.md)
 ## Setup
 ### Create volume
 ```
