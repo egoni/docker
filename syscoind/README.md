@@ -33,3 +33,24 @@ docker run -v syscoind-data:/opt/syscoin --name=syscoind-node -d \
  -p 18369:18369 \
  syscoind:latest
 ```
+## Update
+Stop container
+```
+docker stop syscoind-node
+```
+Remove container
+```
+docker rm syscoind-node
+```
+Pull new image
+```
+docker pull egoni/syscoind:latest
+```
+Run container
+```
+docker run -v syscoind-data:/opt/syscoin --name=syscoind-node -d \
+ -p 30303:30303 \
+ -p 8369:8369 \
+ syscoind:latest
+```
+
