@@ -5,7 +5,7 @@ MAINTAINER egoni <eg0ni@protonmail.com>
 ADD https://github.com/syscoin/syscoin/releases/download/v4.1.3/syscoin-4.1.3-x86_64-linux-gnu.tar.gz /tmp/
 
 # get sentinel binaries
-ADD https://github.com/syscoin/sentinel/archive/1.1.1.tar.gz /tmp/
+ADD https://github.com/syscoin/sentinel/archive/4.0.0.tar.gz /tmp/
 
 # installing script and configuration files
 COPY ./bin/* /usr/local/bin/
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get upgrade -y \
 	&& groupadd -g 1000 syscoin \
 	&& useradd -u 1000 -g syscoin -s /bin/bash -m syscoin -d /opt/syscoin \
 	&& tar -xvf /tmp/syscoin-*.tar.gz -C /tmp/ \
-	&& tar -xvf /tmp/1.1.1.tar.gz -C /tmp/ \
+	&& tar -xvf /tmp/4.0.0.tar.gz -C /tmp/ \
 	&& cp /tmp/syscoin*/bin/* /usr/local/bin \
 	&& cp -r /tmp/sentinel* /opt/sentinel \
 	&& rm -rf /tmp/syscoin* \
