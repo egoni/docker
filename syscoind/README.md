@@ -1,10 +1,12 @@
-# Syscoin
+# Syscoind Docker
+Docker image that runs the Syscoin syscoind node in a container for easy deployment.
+
 ## Requirement
 * Project-specific hardware requirements
 * Docker
 
 Instructions for Ubuntu 18.04.4 LTS Docker installation can be found [here](https://github.com/egoni/docker/blob/master/README.md)
-## Setup
+## Start
 ### Create volume
 ```
 docker volume create --name=syscoind-data
