@@ -13,11 +13,11 @@ docker volume create --name=theta-data
 ```
 ### Start
 ```
-docker run -v theta-data:/opt/theta --name=theta-guardian-node -it theta-guardian-node:latest
+docker run -v theta-data:/opt/theta --name=theta-guardian-testnet -it theta-guardian-testnet:latest
 ```
 ### Get sync status
 ```
-docker exec theta-node thetacli query status
+docker exec theta-guardian-testnet thetacli query status
 ```
 
 See [here](https://github.com/thetatoken/guardian-testnet-guide/blob/master/docs/CLI.md#running-a-guardian-node-through-command-line) for more information
