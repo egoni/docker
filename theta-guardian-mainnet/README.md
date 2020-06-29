@@ -13,7 +13,7 @@ docker volume create --name=theta-data
 ```
 ### Start
 ```
-docker run -v theta-data:/opt/theta --name=theta-guardian-mainnet -it -p 30001:30001 theta-guardian-mainnet:latest
+docker run -v theta-data:/opt/theta --name=theta-guardian-mainnet -it -p 30001:30001 egoni/theta-guardian-mainnet:latest
 ```
 On prompt type your guardian node password, to dettach press <kbd>CTRL</kbd>+<kbd>P</kbd> followed by <kbd>CTRL</kbd>+<kbd>Q</kbd>.
 ### Get sync status

@@ -15,7 +15,7 @@ docker volume create --name=zcoind-data
 ```
 docker run -v zcoind-data:/opt/zcoin --name=zcoind-node -d \
  -p 8168:8168 \
- zcoind:latest
+ egoni/zcoind:latest
 ```
 ### For masternode
 ```
@@ -23,14 +23,14 @@ docker run -v zcoind-data:/opt/zcoin --name=zcoind-node -d \
  --env MASTERNODEIP=X.X.X.X \
  --env MASTERNODEKEY=12345467j9828nf91idm94ngdf988888888888dddddddddssddd \
  -p 8168:8168 \
- zcoind:latest
+ egoni/zcoind:latest
 ```
 ### For testnet node
 ```
 docker run -v zcoind-data:/opt/zcoin --name=zcoind-node -d \
  --env TESTNET=1 \
  -p 8168:8168 \
- zcoind:latest
+ egoni/zcoind:latest
 ```
 ## Update
 Stop container

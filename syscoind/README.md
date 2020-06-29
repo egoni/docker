@@ -16,7 +16,7 @@ docker volume create --name=syscoind-data
 docker run -v syscoind-data:/opt/syscoin --name=syscoind-node -d \
  -p 30303:30303 \
  -p 8369:8369 \
- syscoind:latest
+ egoni/syscoind:latest
 ```
 ### For masternode
 ```
@@ -25,7 +25,7 @@ docker run -v syscoind-data:/opt/syscoin --name=syscoind-node -d \
  --env MASTERNODEKEY=12345467j9828nf91idm94ngdf988888888888dddddddddssddd \
  -p 30303:30303 \
  -p 8369:8369 \
- syscoind:latest
+ egoni/syscoind:latest
 ```
 ### For testnet node
 ```
@@ -33,7 +33,7 @@ docker run -v syscoind-data:/opt/syscoin --name=syscoind-node -d \
  --env TESTNET=1 \
  -p 30303:30303 \
  -p 18369:18369 \
- syscoind:latest
+ egoni/syscoind:latest
 ```
 ## Update
 Stop container
